@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin&display=swap');
+
+*{
+    margin : 0;
+    padding: 0;
+    font-family: "Cabin", Arial, Helvetica, sans-serif;
+    color: #111;
+}
+
+body{
+    background-color: rgb(221, 221, 221);
+}
+
+.expense-add-card{
+    margin: 7px;
+    padding-bottom: 30px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.expense-header{
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-bottom: 8px;
+    height: 23px;
+    font-size: 20px;
+}
+
+.expense-amount-container{
+    margin: 5px;
+    border-radius: 5px;   
+    display: flex;
+    align-items: center;
+}
+
+.expense-amount-container span {
+    display: block;
+    overflow: hidden;
+    padding: 0 4px 0 6px;
+}
+
+.expense-date-control{
+    margin-top: 10px;
+    margin-left: 10px;
+    border-style: none;
+}
+
+.expense-amount-label{
+    float:left;
+    font-size: 40px;
+}
+
+.expense-amount-control{
+    width: 100%;
+    height: 45px;
+    font-size: 40px;
+    border-style: none;
+}
+
+.expense-amount-container{
+    margin: 5px 10px;
+    margin-left: 10px;
+}
+
+.expense-info-container{
+    display: flex;
+    margin: 8px 12px;
+}
+
+.expense-info-control{
+    border-style: none;
+    width: 50%;
+}
+
+.expense-add-container{
+    margin-bottom: 20px;
+}
+
+.expense-add-control{
+    border-radius: 5px;
+    height: 30px;
+    width: 90px;
+    float: left;
+    margin-top: 3px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+
+    color: #ffffff;
+    background-color: rgb(72, 161, 235);
+}

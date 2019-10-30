@@ -1,0 +1,30 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(206, 206, 206);
+}
+
+.expense-card{
+    background-color: white;
+    border-radius: 5px;
+    margin: 10px 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+}
+
+.category-container{
+    margin: 5px;
+    font-size: 50px;
+}
+
+.expense-info-container{
+    margin: 5px;
+    display: flex;
+}
+
+.expense-amount{
+    font-size: 25px;
+}
