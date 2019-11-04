@@ -12,17 +12,34 @@ body{
     border-radius: 5px;
     margin: 10px 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
     display: flex;
 }
 
 .category-container{
     margin: 5px;
+    padding: 5px;
     font-size: 50px;
 }
 
 .expense-info-container{
-    margin: 5px;
     display: flex;
+    flex-grow: 1;
+
+    margin: 5px;
+}
+
+.expense-tile-container{
+    padding-top: 10px;
+
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.expense-datetime-container{
+    padding-top: 10px;
+    margin-right: 10px;
 }
 
 .expense-amount{

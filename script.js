@@ -11,16 +11,42 @@ function onFormSubmit(){
         }
     }
     console.log(JSON.stringify(formData));
-    xhr.open("POST","http://127.0.0.1:3000/api/v1/expense");
+    xhr.open("POST","http://127.0.0.1:1234/api/v1/expense");
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xhr.send(formData);
+    xhr.send(JSON.stringify(formData));
 }
 
 function readFormData(){
     var formData = {};
-    formData["amount"] = parseFloat(document.getElementById("amount").value);
-    formData["datetime"] = document.getElementById("date").value;
-    formData["title"] = document.getElementById("title").value;
-    formData["category"] = document.getElementById("category").value;
+    formData["Amount"] = parseFloat(document.getElementById("amount").value);
+    formData["Datetime"] = document.getElementById("date").value;
+    formData["Title"] = document.getElementById("title").value;
+    formData["Category"] = document.getElementById("category").value;
     return formData;
 }
+
+function getExpenseList(){
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://127.0.0.1:1234/api/v1/expenses")
+    xhr.onload = function(){
+       try{
+            const json = JSON.parse(xhr.responseText);
+            populateList(json);
+       }catch(e){
+            console.warn("Could not load", e);
+       }
+    }   
+    xhr.send();
+}
+
+function populateList(json){
+    const expenseList = document.querySelector("#expense-list-container > div");
+
+    json.forEach((row)=>{   
+        row.forEach((cell)=>{
+            console.log(cell)
+        })
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {getExpenseList()});
