@@ -20,10 +20,10 @@ function onFormSubmit(){
 
 function readFormData(){
     var formData = {};
-    formData["Amount"] = parseFloat(document.getElementById("amount").value);
-    formData["Datetime"] = document.getElementById("date").value;
-    formData["Title"] = document.getElementById("title").value;
-    formData["Category"] = document.getElementById("category").value;
+    formData["amount"] = parseFloat(document.getElementById("amount").value);
+    formData["datetime"] = document.getElementById("date").value;
+    formData["title"] = document.getElementById("title").value;
+    formData["category"] = document.getElementById("category").value;
     return formData;
 }
 
@@ -48,10 +48,8 @@ function populateList(json){
         expenseList.firstChild.remove();
     }
  
-    let category = "W";
-
     json.forEach((row)=>{   
-        createCard(expenseList, category, row.amount, row.title, row.datetime);
+        createCard(expenseList, shortenCategory(row.category), row.amount, row.title, row.datetime);
     });
 }
 
@@ -97,4 +95,8 @@ function initDashboard(){
     };
 
     getExpenseList();
+}
+
+function shortenCategory(category){
+    return category.charAt(0).toUpperCase();
 }
