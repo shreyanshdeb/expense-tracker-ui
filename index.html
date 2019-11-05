@@ -1,44 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./style.css" type="text/css">
-    <title>Expense Tracker</title>
+    <title>Expense Tracker - Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="./dashboard_style.css">
 </head>
-
-<body>
+<body onload="initDashboard()">
     <div class="container">
-        <div class="expense-add-card">
-            <div class="expense-header">
-                Add Expense
+        <div class="header">
+            <div class="month-container">
+                <h3>November</h3>
             </div>
-            <form autocomplete="off" onsubmit="event.preventDefault(); onFormSubmit();">    
-                <input type="date" value="2013-01-08" class="expense-date-control" name="date" id="date">            
-                <div class="expense-amount-container">
-                    <label class="expense-amount-label">₹</label>
-                    <span>
-                        <input type="tel" name="amount" id="amount" class="expense-amount-control" placeholder="Amount">
-                    </span>
+            <div class="total-expense-conatiner">
+                <h1>₹12,500</h1>
+            </div>
+            <div class="expense-breakdown-container">
+                <div>S  ₹5000 </div>
+                <div>N  ₹5000 </div>
+                <div>W  ₹2500 </div>
+            </div>                   
+        </div>
+        <div class="summary">
+        </div>
+        <div id="expense-list-container">
+            <div class="expense-list" id="expense-list">
+                <div class="expense-card">
+                        <div class="category-container">
+                            N
+                        </div>
+                        <div class="expense-info-container">
+                            <div class="expense-tile-container">
+                                    <label class="expense-amount">2000</label>
+                                    <label class="expense-info-title">Groceries</label>
+                            </div>
+                            <div class="expense-datetime-container">                      
+                                <label class="expense-info-datetime">2019-10-25</label>
+                            </div>                  
+                        </div>
                 </div>
-                <div class="expense-info-container">     
-                    <input type="text" name="title" id="title" class="expense-info-title expense-info-control" placeholder="Title">   
-                    <select placeholder="Category" class="expense-info-category expense-info-control" name="category" id= "category">
-                        <option value="" disabled selected hidden>Category</option>
-                        <option>Savings</option>
-                        <option>Needs</option>
-                        <option>Wants</option>
-                    </select>       
+                <div class="expense-card">
+                    <div class="category-container">
+                        W
+                    </div>
+                    <div class="expense-info-container">
+                        <div class="expense-tile-container">
+                                <label class="expense-amount">1500</label>
+                                <label class="expense-info-title">Movie Night</label>
+                        </div>
+                        <div class="expense-datetime-container">                      
+                            <label class="expense-info-datetime">2019-10-21</label>
+                        </div>                  
+                    </div>
                 </div>
-                <div class="expense-add-container">
-                    <input type="submit" class="expense-add-control" value="Add">  
-                </div>
-            </form>
+            </div>
+        </div>
+        <div class="new-expense-btn-container">
+            <button class="new-expense-btn" id="newExpenseBtn">New Expense</button>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
-
 </html>

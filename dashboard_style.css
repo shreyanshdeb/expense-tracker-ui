@@ -1,10 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin&display=swap');
+
 *{
-    margin:0;
-    padding: 0;
+    margin : 0;
+    padding: 0;   
+    color: #111;
 }
 
 body{
     background-color: rgb(206, 206, 206);
+}
+
+.header{
+    height: 120px;
+    top: 0px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.month-container{
+    padding: 15px 10px 5px 10px;
+}
+
+.total-expense-conatiner{
+    padding: 0 10px;
+}
+
+.expense-breakdown-container{
+    display: flex;
+    padding: 5px 10px;
+}
+
+.expense-breakdown-container div {
+    padding-left: 5px;
+}
+
+.expense-list{
+    padding-bottom: 50px;
 }
 
 .expense-card{
@@ -44,4 +77,21 @@ body{
 
 .expense-amount{
     font-size: 25px;
+}
+
+.new-expense-btn-container{
+    height: 50px;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.new-expense-btn{
+    width: 100%;
+    color: #ffffff;
+    background-color: rgb(72, 161, 235);
+    border-radius: 5px;
+    border-style: none;
 }
