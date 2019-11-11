@@ -20,8 +20,9 @@ function onFormSubmit(){
 
 function readFormData(){
     var formData = {};
+    (new Date(document.getElementById("date").value)).getTime();
     formData["amount"] = parseFloat(document.getElementById("amount").value);
-    formData["datetime"] = document.getElementById("date").value;
+    formData["datetime"] = ((new Date(document.getElementById("date").value)).getTime()/1000);
     formData["title"] = document.getElementById("title").value;
     formData["category"] = document.getElementById("category").value;
     return formData;
@@ -80,10 +81,13 @@ function createCard(expenseList, category, amount, title, datetime){
     expenseTitleConatiner.append(expenseInfoTitle);
     expenseDatetimeContainer.append(expenseInfoDatetime);
 
+    let date = new Date(datetime * 1000)
+    let formatted_date = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + appendLeadingZeroes(date.getDate());
+
     categoryContainer.innerHTML = category;
     expenseAmount.innerHTML = "₹ " + amount;
     expenseInfoTitle.innerHTML = title;
-    expenseInfoDatetime.innerHTML = datetime;
+    expenseInfoDatetime.innerHTML = formatted_date;
 
     expenseList.append(expenseCard);
 }
@@ -95,8 +99,36 @@ function initDashboard(){
     };
 
     getExpenseList();
+    GetTotalExpense();
 }
 
 function shortenCategory(category){
     return category.charAt(0).toUpperCase();
 }
+
+function GetTotalExpense(){
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET","http://127.0.0.1:1234/api/v1/totalexpenseforthemonth");
+    xhr.open = function(){
+        if (xhr.status>=200 & xhr.status<300){
+            console.log("success", xhr);
+            const json = JSON.parse(xhr.responseText);
+            populateTotalExpense(json);
+        }else{
+            console.log("failed", xhr);
+        }
+    }
+    xhr.send();
+}
+
+function populateTotalExpense(json){
+    const totalExpenseHTML = document.querySelector("#total-expense-conatiner > h4")
+    totalExpenseHTML.innerHTML = json.TotalExpenses;
+}
+
+function appendLeadingZeroes(n){
+    if(n <= 9){
+      return "0" + n;
+    }
+    return n
+  }
